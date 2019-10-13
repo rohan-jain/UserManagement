@@ -23,21 +23,10 @@ public class AdminServlet extends HttpServlet {
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
 	          
-	    String n=request.getParameter("username");  
-	    String p=request.getParameter("userpassword");  
-	          
-	    if(StoreUtility.validate(n, p)){
-	    	request.setAttribute("name", n);
-	        RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
-	        rd.forward(request,response);  
-	    }  
-	    else{  
-	        out.print("Sorry username or password error");  
-	        RequestDispatcher rd=request.getRequestDispatcher("UserLogin.jsp");  
-	        rd.include(request,response);  
-	    }  
-	          
-	    out.close();  
+	   // String id = request.getParameter("id");   
+	    
+	    //int result = DBUtility.delete(id);
+	    
 	    }  
 	}
 

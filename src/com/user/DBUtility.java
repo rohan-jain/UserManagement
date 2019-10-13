@@ -49,13 +49,15 @@ public class DBUtility {
 	
 
 	
-	public static int delete(int id){  
+	public static int delete(String id){  
 	    int status=0;  
 	    try{  
 	    	con = DBUtility.getConnetcToDB(); 
-	        PreparedStatement ps=con.prepareStatement("delete from register where id=?");  
-	        ps.setString(id, "userid");  
-	        status=ps.executeUpdate();  
+	    	Statement stmt = (Statement)con.createStatement();
+	    	String query ="delete from users where userid="+id+"";
+	    	//PreparedStatement ps=con.prepareStatement("delete from register where id=?");  
+	        status = stmt.executeUpdate(query);  
+	          
 	    }catch(Exception e){System.out.println(e);}  
 	  
 	    return status;  
