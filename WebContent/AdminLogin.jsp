@@ -19,12 +19,14 @@
         String query = "select * from users;";
         r = DBUtility.getData(query);
         ResultSetMetaData metaData = r.getMetaData();
+        int i;
         while(r.next())
         {
             %>
                 <tr>
                  <%
-                 for(int i = 1; i<=metaData.getColumnCount();i++)
+
+                 for(i = 1; i<=metaData.getColumnCount();i++)
                     { %>
                      <td>
                      <%= r.getString(i)%>
@@ -33,7 +35,7 @@
                 <% 
                     }
                 %>                   
-                <td><a href="AdminServlet?${r.getString("id")}">Delete</a></td>
+                <td><a href="AdminServlet?id=<%= r.getString(1)%>">Delete</a></td>
                 </tr>
 
             <% 

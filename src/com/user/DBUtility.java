@@ -46,5 +46,20 @@ public class DBUtility {
 		}
 		return null;
 	}  
+	
+
+	
+	public static int delete(int id){  
+	    int status=0;  
+	    try{  
+	    	con = DBUtility.getConnetcToDB(); 
+	        PreparedStatement ps=con.prepareStatement("delete from register where id=?");  
+	        ps.setString(id, "userid");  
+	        status=ps.executeUpdate();  
+	    }catch(Exception e){System.out.println(e);}  
+	  
+	    return status;  
+	}  
+
 }
 
