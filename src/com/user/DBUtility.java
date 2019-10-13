@@ -61,7 +61,21 @@ public class DBUtility {
 	    }catch(Exception e){System.out.println(e);}  
 	  
 	    return status;  
-	}  
+	}
+	
+	public static ResultSet getDataByEmail(String email){  
+	      
+	    try{  
+	    	con = DBUtility.getConnetcToDB(); 
+	    	Statement stmt = con.createStatement();
+	    	String query ="select * from users where email="+email+"";
+	    	//PreparedStatement ps=con.prepareStatement("delete from register where id=?");  
+	       ResultSet status = stmt.executeQuery(query);  
+	         return status;
+	    }catch(Exception e){System.out.println(e);}  
+	  
+	    return null;  
+	}
 
 }
 

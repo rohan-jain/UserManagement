@@ -13,19 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UserLoginServlet
  */
-@WebServlet("/UserLoginServlet")
+@WebServlet("/AdminServlet")
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
 	          
-	   // String id = request.getParameter("id");   
+	    String id = request.getParameter("id");   
 	    
-	    //int result = DBUtility.delete(id);
+	    int result = DBUtility.delete(id);
+	    
+	    if(result>0) {
+		    out.println("Data deleted !!!!!");	    	
+	    }else {
+	    	out.println("something went wron!!!");
+	    }
+
 	    
 	    }  
 	}
