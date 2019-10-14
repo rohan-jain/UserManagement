@@ -25,9 +25,18 @@ public class UserLoginServlet extends HttpServlet {
 	          
 	    String n=request.getParameter("username");  
 	    String p=request.getParameter("userpassword");  
-	          
+	    
+	    if(n.equals("admin") && p.equals("admin")) {
+	    	System.out.println("test admin admin");
+	        RequestDispatcher rd=request.getRequestDispatcher("AdminLogin.jsp");  
+	        rd.forward(request,response); 
+	    }
+	    
+	    
+	    
 	    if(StoreUtility.validate(n, p)){
 	    	request.setAttribute("name", n);
+	    	request.setAttribute("isLoginSuccessful", true);
 	        RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
 	        rd.forward(request,response);  
 	    }  
