@@ -36,32 +36,12 @@ public class ResetServlet extends HttpServlet {
 	    
 	    ResultSet record = DBUtility.getDataByEmail(userEmail);
 	    System.out.println(record);
-	    
-	    
-	    
-		
-		
-		      System.out.println("hello world");
-		 	  System.out.println("roh a jan");
-		      //from,password,to,subject,message  
-			  send("testmailusermanagement@gmail.com","1!Password","rohanjains@gmail.com","hello javatpoint another test","How r u?");  
-		      //change from, password and to  
-		      System.out.println("rohanJain");
-		
-		
-		
-  
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	   
 	    
 	    try {
 			if(record.next()) {
+				String password = record.getString(6);
+				send("testmailusermanagement@gmail.com","1!Password",userEmail,"Here is your password reset", password);  
 				out.println("password has been sent !!!!");
 			}else {
 				out.println("something went wrong !!!!");

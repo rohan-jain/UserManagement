@@ -28,6 +28,7 @@ public class UserLoginServlet extends HttpServlet {
 	    
 	    if(n.equals("admin") && p.equals("admin")) {
 	    	System.out.println("test admin admin");
+	    	request.setAttribute("isLoginSuccessful", true);
 	        RequestDispatcher rd=request.getRequestDispatcher("AdminLogin.jsp");  
 	        rd.forward(request,response); 
 	    }

@@ -17,6 +17,13 @@
 <title>User Registration</title>
 </head>
 <body>
+
+<%
+if (request.getAttribute("isLoginSuccessful")!=null && (Boolean)request.getAttribute("isLoginSuccessful")) {
+%>
+
+
+
 	<table width="59%" border="1">
     <%
         ResultSet r;
@@ -47,5 +54,17 @@
         }
     %>
 </table>
+
+
+<%
+} else {
+	%>
+
+<h3> Please go to login page</h3>
+	
+<%
+}
+	 %>
+
 </body>
 </html>
